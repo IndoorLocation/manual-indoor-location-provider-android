@@ -1,13 +1,13 @@
-package io.indoorlocation.setlocation;
+package io.indoorlocation.manual;
 
 import io.indoorlocation.core.IndoorLocation;
 import io.indoorlocation.core.IndoorLocationProvider;
 
-public class SetLocationIndoorLocationProvider extends IndoorLocationProvider {
+public class ManualIndoorLocationProvider extends IndoorLocationProvider {
 
     private boolean isStarted = false;
 
-    public SetLocationIndoorLocationProvider() {
+    public ManualIndoorLocationProvider() {
         super("setlocation");
     }
 

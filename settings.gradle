@@ -1,1 +1,1 @@
-include ':app', ':setlocationprovider'
+include ':app', ':manuallocationprovider'
