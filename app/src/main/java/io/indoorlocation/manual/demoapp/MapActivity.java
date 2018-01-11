@@ -1,4 +1,4 @@
-package io.indoorlocation.demoapp;
+package io.indoorlocation.manual.demoapp;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -16,9 +16,9 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
 import io.indoorlocation.core.IndoorLocation;
 import io.indoorlocation.manual.ManualIndoorLocationProvider;
-import io.mapwize.mapboxplugin.MapOptions;
-import io.mapwize.mapboxplugin.MapwizePlugin;
-import io.mapwize.mapboxplugin.model.LatLngFloor;
+import io.mapwize.mapwizeformapbox.MapOptions;
+import io.mapwize.mapwizeformapbox.MapwizePlugin;
+import io.mapwize.mapwizeformapbox.model.LatLngFloor;
 
 public class MapActivity extends AppCompatActivity {
 
@@ -30,7 +30,7 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, "pk.eyJ1IjoiZXRpZW5uZS1tYXB3aXplIiwiYSI6ImNpaWszNWF2dDAxYjF1aWtwYTI5bmQxam4ifQ.7GdfVuicspgzILBdynB2qQ");
+        Mapbox.getInstance(this, "pk.eyJ1IjoibWFwd2l6ZSIsImEiOiJjamNhYnN6MjAwNW5pMnZvMnYzYTFpcWVxIn0.veTCqUipGXCw8NwM2ep1Xg");
         setContentView(R.layout.activity_map);
 
         mapView = findViewById(R.id.mapview);
@@ -44,10 +44,10 @@ public class MapActivity extends AppCompatActivity {
                 mapwizePlugin.setOnMapClickListener(new MapwizePlugin.OnMapClickListener() {
                     @Override
                     public void onMapClick(LatLngFloor latLngFloor) {
-                        Location location = new Location("Manual");
-                        location.setLatitude(30);
-                        location.setLongitude(20);
-                        IndoorLocation indoorLocation = new IndoorLocation(location, null);
+                        Location location = new Location(manualIndoorLocationProvider.getName());
+                        location.setLatitude(latLngFloor.getLatitude());
+                        location.setLongitude(latLngFloor.getLongitude());
+                        IndoorLocation indoorLocation = new IndoorLocation(location, latLngFloor.getFloor());
                         manualIndoorLocationProvider.setIndoorLocation(indoorLocation);
                     }
                 });

@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "io.indoorlocation.demoapp"
+        applicationId "io.indoorlocation.manual.demoapp"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -22,8 +22,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation ('io.mapwize:mapboxplugin:1.0.0@aar') {
-        transitive=true
+    implementation ("io.mapwize.indoormaps:MapwizeForMapbox:1.0.0@aar") {
+        transitive = true
     }
     compile project(path: ':manuallocationprovider')
 }

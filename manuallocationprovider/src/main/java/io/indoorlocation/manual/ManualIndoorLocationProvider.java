@@ -8,7 +8,7 @@ public class ManualIndoorLocationProvider extends IndoorLocationProvider {
     private boolean isStarted = false;
 
     public ManualIndoorLocationProvider() {
-        super("setlocation");
+        super();
     }
 
     public void setIndoorLocation(IndoorLocation indoorLocation) {

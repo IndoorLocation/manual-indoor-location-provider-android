@@ -22,6 +22,7 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
+        maven { url 'https://mapwize-maven.azureedge.net'}
     }
 }
 

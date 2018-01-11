@@ -1,8 +1,8 @@
-package io.indoorlocation.demoapp;
+package io.indoorlocation.manual.demoapp;
 
 import android.app.Application;
 
-import io.mapwize.mapboxplugin.AccountManager;
+import io.mapwize.mapwizeformapbox.AccountManager;
 
 public class ManualIndoorLocationProviderDemoApplication extends Application {
 
