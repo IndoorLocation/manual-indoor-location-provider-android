@@ -39,7 +39,7 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onMapReady(MapboxMap mapboxMap) {
                 mapwizePlugin = new MapwizePlugin(mapView, mapboxMap, new MapOptions());
-                startLocationService();
+                setupLocationProvider();
 
                 mapwizePlugin.setOnMapClickListener(new MapwizePlugin.OnMapClickListener() {
                     @Override
@@ -47,7 +47,7 @@ public class MapActivity extends AppCompatActivity {
                         Location location = new Location(manualIndoorLocationProvider.getName());
                         location.setLatitude(latLngFloor.getLatitude());
                         location.setLongitude(latLngFloor.getLongitude());
-                        IndoorLocation indoorLocation = new IndoorLocation(location, latLngFloor.getFloor());
+                        IndoorLocation indoorLocation = new IndoorLocation(manualIndoorLocationProvider.getName(), latLngFloor.getLatitude(), latLngFloor.getLongitude(), latLngFloor.getFloor(), System.currentTimeMillis());
                         manualIndoorLocationProvider.setIndoorLocation(indoorLocation);
                     }
                 });
@@ -55,20 +55,9 @@ public class MapActivity extends AppCompatActivity {
         });
     }
 
-    private void startLocationService() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSION_ACCESS_FINE_LOCATION);
-        }
-        else {
-            setupLocationProvider();
-        }
-    }
-
     private void setupLocationProvider() {
         manualIndoorLocationProvider = new ManualIndoorLocationProvider();
-        if (mapwizePlugin != null) {
-            mapwizePlugin.setLocationProvider(manualIndoorLocationProvider);
-        }
+        mapwizePlugin.setLocationProvider(manualIndoorLocationProvider);
     }
 
     @Override
