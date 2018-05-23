@@ -16,6 +16,7 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
 import io.indoorlocation.core.IndoorLocation;
 import io.indoorlocation.manual.ManualIndoorLocationProvider;
+import io.mapwize.mapwizeformapbox.AccountManager;
 import io.mapwize.mapwizeformapbox.MapOptions;
 import io.mapwize.mapwizeformapbox.MapwizePlugin;
 import io.mapwize.mapwizeformapbox.model.LatLngFloor;
@@ -35,6 +36,8 @@ public class MapActivity extends AppCompatActivity {
 
         mapView = findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
+
+        mapView.setStyleUrl("http://outdoor.mapwize.io/styles/mapwize/style.json?key=" + AccountManager.getInstance().getApiKey());
 
         MapOptions opts = new MapOptions.Builder().build();
         mapwizePlugin = new MapwizePlugin(mapView, opts);
