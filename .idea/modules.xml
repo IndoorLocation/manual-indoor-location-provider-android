@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/setlocation-provider-android.iml" filepath="$PROJECT_DIR$/setlocation-provider-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/setlocationprovider/setlocation.iml" filepath="$PROJECT_DIR$/setlocationprovider/setlocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manual-indoor-location-provider-android.iml" filepath="$PROJECT_DIR$/manual-indoor-location-provider-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manuallocationprovider/manuallocationprovider.iml" filepath="$PROJECT_DIR$/manuallocationprovider/manuallocationprovider.iml" />
     </modules>
   </component>
 </project>
